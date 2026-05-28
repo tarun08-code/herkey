@@ -37,29 +37,17 @@ pipeline {
             }
         }
         
-        stage('Deploy to Kubernetes') {
-            steps {
-                sh 'kubectl apply -f k8s-deployment.yaml'
-                sh 'kubectl rollout status deployment/taskmanager'
-                echo "Deployed to Kubernetes"
-            }
-        }
-        
         stage('Cleanup') {
             steps {
                 sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
                 sh 'docker system prune -f || true'
-                echo "Cleanup done - disk space saved"
+                echo "Cleanup done"
             }
         }
     }
     
     post {
-        success {
-            echo "Pipeline SUCCESS! Build ${BUILD_NUMBER}"
-        }
-        failure {
-            echo "Pipeline FAILED! Check logs"
-        }
+        success { echo "Pipeline SUCCESS! Build ${BUILD_NUMBER}" }
+        failure { echo "Pipeline FAILED! Check logs" }
     }
 }
