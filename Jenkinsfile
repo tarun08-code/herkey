@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_IMAGE = 'tarun08-code/taskmanager'
+        DOCKER_IMAGE = 'tarun08code/taskmanager'
         DOCKER_TAG = "${BUILD_NUMBER}"
     }
     
