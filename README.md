@@ -384,5 +384,4 @@ cost saving tips on cloud platforms
 3. Clean Docker regularly on EC2
 4. Keep only last 3 builds in Jenkins
 
-test changes for jenkins trigger 
-again some chanhes 
+changes
