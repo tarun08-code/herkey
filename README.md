@@ -172,6 +172,18 @@ Initial Jenkins admin password:
 
 ![alt text](image.png)
 
+GitHub Webhook Setup
+
+On GitHub:
+Go to your repo → Settings → Webhooks → Add webhook
+- Payload URL: `http://your-ec2-public-ip:8080/github-webhook/`
+- Content type: `application/json`
+- hit Add webhook
+
+On Jenkins:
+Open your job → Configure → Build Triggers → check GitHub hook trigger for GITScm polling → Save
+
+
 ### Install Docker on EC2
 
 sudo apt install -y docker.io
